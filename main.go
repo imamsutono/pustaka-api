@@ -8,12 +8,14 @@ import (
 func main() {
 	router := gin.Default()
 
-	router.GET("/", func(context *gin.Context) {
-		context.JSON(http.StatusOK, gin.H{
-			"title": "Hello World!",
-			"bio":   "Lets learn Golang",
-		})
-	})
+	router.GET("/", rootHandler)
 
 	router.Run()
+}
+
+func rootHandler(context *gin.Context) {
+	context.JSON(http.StatusOK, gin.H{
+		"title": "Hello World!",
+		"bio":   "Lets learn Golang",
+	})
 }
